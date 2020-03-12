@@ -9,9 +9,12 @@
     "build": "sucrase ./src -d ./dist --transforms typescript,imports"
   },
   "dependencies": {
+    "@types/morgan": "^1.9.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "mongoose": "^5.4.19"
+    "mongoose": "^5.4.19",
+    "morgan": "^1.9.1",
+    "pretty-quick": "^2.0.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.4",
@@ -28,10 +31,17 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
+    "husky": "^4.2.3",
     "nodemon": "^1.18.10",
-    "prettier": "^1.16.4",
+    "prettier": "^1.19.1",
     "rimraf": "^2.6.3",
     "sucrase": "^3.10.0",
     "typescript": "^3.3.3333"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged",
+      "pre-push": "pretty-quick --staged"
+    }
   }
 }
